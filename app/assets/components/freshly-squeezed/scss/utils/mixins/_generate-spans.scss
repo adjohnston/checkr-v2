@@ -1,0 +1,55 @@
+//  -------------------------------
+//  generate spans : mixins : utils
+//  -------------------------------
+
+    @mixin generate-spans ($columns: $grid-columns, $breakpoint: "") {
+      @if ($breakpoint != "") {
+
+        @include breakpoint($max: $breakpoint) {
+          $x: 1;
+
+          @for $n from 1 through $grid-columns {
+
+            .span__#{$n}of#{$grid-columns} {
+              @each $vendor in -webkit-, -moz-, -ms-, "" {
+
+                #{$vendor}flex: 0 1 (100% / $columns * $x);
+
+              }
+            }
+
+            @if ($n % ($grid-columns / $columns) == 0) {
+              $x: $x + 1;
+            }
+
+          }
+
+          @for $n from 1 through $columns {
+
+            .span__#{$n}of#{$columns} {
+              @each $vendor in -webkit-, -moz-, -ms-, "" {
+
+                #{$vendor}flex: 0 1 (100% / $columns * $n);
+
+              }
+            }
+
+          }
+        }
+
+      } @else {
+
+        @for $n from 1 through $columns {
+
+          .span__#{$n}of#{$columns} {
+            @each $vendor in -webkit-, -moz-, -ms-, "" {
+
+              #{$vendor}flex: 0 1 (100% / $columns * $n);
+
+            }
+          }
+
+        }
+
+      }
+    }

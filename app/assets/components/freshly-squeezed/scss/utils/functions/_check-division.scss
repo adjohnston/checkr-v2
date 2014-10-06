@@ -1,0 +1,15 @@
+//  ----------------------------------
+//  check division : functions : utils
+//  ----------------------------------
+
+    @function check-division ($grid-size, $division) {
+      @if ($grid-size / $division >= 2) {
+
+        @return round($grid-size / $division);
+
+      } @else {
+
+        @return 1;
+
+      }
+    }

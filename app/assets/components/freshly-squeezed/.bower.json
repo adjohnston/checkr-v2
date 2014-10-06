@@ -1,0 +1,33 @@
+{
+  "name": "freshly-squeezed",
+  "homepage": "https://github.com/adjohnston/freshly-squeezed",
+  "main": "freshly-squeezed.css",
+  "authors": [
+    "Adam Johnston <adam.johnston3679@gmail.com>"
+  ],
+  "description": "A quickstart, lightweight, modular OOCSS framework",
+  "keywords": [
+    "lightweight",
+    "modular",
+    "css",
+    "scss",
+    "bem",
+    "framework"
+  ],
+  "ignore": [
+    "**/*",
+    "!css/freshly-squeezed.css",
+    "!scss/**/*",
+    "!config.rb"
+  ],
+  "_release": "4ed359cf3e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "4ed359cf3ea4492edbaab1f6043adfa1c6fb4aee"
+  },
+  "_source": "git://github.com/adjohnston/freshly-squeezed.git",
+  "_target": "*",
+  "_originalSource": "freshly-squeezed",
+  "_direct": true
+}

@@ -1,0 +1,30 @@
+//  --------------------------
+//  text size : mixins : utils
+//  --------------------------
+
+    @mixin text-size ( $font-size: 1, $relative-multiplier: "" ) {
+      $multiplier:   1;
+      $rounded-font: round($font-size);
+
+      @if $relative-multiplier == "" {
+        @if $font-size / $rounded-font >= 1 {
+
+          $multiplier: $rounded-font + round-to-nearest-quarter($font-size);
+
+        } @else {
+
+          $multiplier: $rounded-font - round-to-nearest-quarter($font-size, true);
+
+        }
+
+        line-height: $base-line-height * $multiplier + 0.0001 + rem;
+      }
+
+      @if type-of($relative-multiplier) == number and $relative-multiplier != "" {
+
+        line-height: gap($relative-multiplier);
+
+      }
+
+      font-size: $font-size + 0.0001 + rem;
+    }

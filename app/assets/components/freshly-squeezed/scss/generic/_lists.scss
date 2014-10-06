@@ -1,0 +1,19 @@
+//  ---------------
+//  lists : generic
+//  ---------------
+
+    ul, ol {
+      @extend %gutter-left;
+    }
+
+    ul, ol, dl {
+      @extend %margin-bottom-only;
+    }
+
+    // dl {}
+
+    // dt {}
+
+    dd {
+      @extend %margin-left-none;
+    }

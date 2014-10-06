@@ -1,0 +1,17 @@
+//  ----------------------
+//  options : vars : utils
+//  ----------------------
+
+//  is responsive?
+    $is-responsive: true !default;
+
+
+//  use flexbox?
+    $use-flexbox: true !default;
+
+//  use normalize
+    $use-normalize: true !default;
+
+
+//  grid column count
+    $grid-columns: 8 !default;

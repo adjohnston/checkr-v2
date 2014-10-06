@@ -1,0 +1,68 @@
+//  ----------------------------
+//  margins & gutters : patterns
+//  ----------------------------
+
+
+//  margins
+    %margin-none {
+      margin: 0;
+    }
+
+    %margin-center {
+      margin-left:  auto;
+      margin-right: auto;
+    }
+
+    %margin-bottom-only {
+      margin: 0 0 gap();
+    }
+
+    %margin-left-only {
+      margin: 0 0 0 gap();
+    }
+
+    %margin-top-none {
+      margin-top: 0;
+    }
+
+    %margin-right-none {
+      margin-right: 0;
+    }
+
+    %margin-bottom-none {
+      margin-bottom: 0;
+    }
+
+    %margin-left-none {
+      margin-left: 0;
+    }
+
+
+//  gutters
+    %gutter-none {
+      padding: 0;
+    }
+
+    %gutter-top {
+      padding-top: gap();
+    }
+
+    %gutter-right {
+      padding-right: gap();
+    }
+
+    %gutter-bottom {
+      padding-bottom: gap();
+    }
+
+    %gutter-left {
+      padding-left: gap();
+    }
+
+    %gutter-left-only {
+      padding: 0 0 0 gap();
+    }
+
+    %gutter-right-only {
+      padding: 0 gap() 0 0;
+    }

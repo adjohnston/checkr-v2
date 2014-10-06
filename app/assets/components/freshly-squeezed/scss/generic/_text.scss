@@ -1,0 +1,18 @@
+//  --------------
+//  text : generic
+//  --------------
+
+//  headers
+    @for $n from 1 through 6 {
+
+      h#{$n} {
+        @extend %margin-bottom-only;
+      }
+
+    }
+
+
+//  paragraphs
+    p {
+      @extend %margin-bottom-only;
+    }
