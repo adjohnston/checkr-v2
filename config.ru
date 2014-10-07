@@ -1,3 +1,3 @@
-require './app/checkr'
+require './config/app'
 
 run Checkr
