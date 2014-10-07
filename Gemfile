@@ -6,3 +6,4 @@ group :test, :development do
 end
 
 gem 'sinatra'
+gem 'sinatra-contrib'
