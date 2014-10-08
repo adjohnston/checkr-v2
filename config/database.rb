@@ -1,6 +1,8 @@
 require 'dm-core'
+require 'dm-types'
 require 'dm-timestamps'
 require 'dm-migrations'
+require 'bcrypt'
 
 DataMapper::Logger.new($stdout, :debug)
 
@@ -10,10 +12,11 @@ class User
   include DataMapper::Resource
 
   property   :id,            Serial
-  property   :email,         String,  required: true
-  property   :username,      String,  required: true
-  property   :name,          String,  required: true
-  property   :sign_in_count, Integer, default: 0
+  property   :email,         String,     required: true, unique: true
+  property   :username,      String,     required: true, unique: true
+  property   :password,      BCryptHash, required: true
+  property   :name,          String,     required: true
+  property   :sign_in_count, Integer,    default: 0
   timestamps :created_at,
              :updated_on
 
