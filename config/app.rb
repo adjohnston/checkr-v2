@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/json'
+require './config/database'
 
 class Checkr < Sinatra::Base
 
@@ -9,7 +10,8 @@ class Checkr < Sinatra::Base
             'access-control-allow-methods' => ['options', 'get', 'post']
   end
 
-  get '/user' do
-    json({ name: 'Adam', age: 29 })
+  get '/users' do
+    users = User.all
+    users.to_json
   end
 end
