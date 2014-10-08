@@ -2,10 +2,10 @@
 
 angular.module('checkr.test', [])
   .controller('testCtrl', ['$http', '$scope', function ($http, $scope) {
-    var user = {},
-        getUser = $http.get('http://localhost:9292/user');
+    var users    = {},
+        getUsers = $http.get('http://localhost:9292/users');
 
-    getUser.success(function (user) {
-      $scope.user = user;
+    getUsers.success(function (users) {
+      $scope.users = users;
     });
   }]);
