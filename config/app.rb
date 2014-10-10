@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/json'
 require './config/database'
+require './config/warden'
 require './routes/users'
 require './routes/lists'
 

@@ -14,8 +14,8 @@ module Sinatra
         end
 
         app.get '/user/:username' do
-          user = User.first(username: params[:username])
-          user.to_json
+          debugger
+          authenticate!
         end
 
         app.post '/user' do
