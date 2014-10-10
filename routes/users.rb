@@ -14,8 +14,9 @@ module Sinatra
         end
 
         app.get '/user/:username' do
-          debugger
-          authenticate!
+          @user = User.first(:username == params[:username])
+          env['warden'].authenticate!
+          'success'
         end
 
         app.post '/user' do

@@ -1,9 +1,3 @@
-require 'dm-core'
-require 'dm-types'
-require 'dm-timestamps'
-require 'dm-migrations'
-require 'bcrypt'
-
 DataMapper::Logger.new($stdout, :debug)
 
 DataMapper.setup(:default, 'postgres://adam@localhost/checkr')

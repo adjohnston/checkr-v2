@@ -1,10 +1,7 @@
-Rack::Builder.new do
-  use Rack::Session::Cookie, :secret => "1234567890"
-
-  use Warden::Manager do | manager |
-    manager.default_strategies :bcrypt
-    manager.failure_app = NotWrittenYet
-  end
+use Rack::Session::Cookie, secret: 'shh!'
+use Warden::Manager do | config |
+  config.default_strategies :bcrypt
+  config.failure_app = self
 end
 
 Warden::Manager.serialize_into_session { | user | user.id }
