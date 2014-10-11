@@ -1,5 +1,3 @@
-require 'sinatra/base'
-require 'sinatra/json'
 require './config/database'
 require './routes/users'
 require './routes/lists'
