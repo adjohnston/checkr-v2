@@ -1,7 +1,6 @@
 # Dir[File.expand_path('../src/**/*.rb', __FILE__)].each {|file| require file }
 
 require './config/database'
-# require './config/warden'
 require './routes/users'
 require './routes/lists'
 
@@ -30,11 +29,18 @@ class Checkr < Sinatra::Base
   end
 
   Warden::Strategies.add(:bcrypt) do
-    def authenticate!
-      debugger
-      user = User.first(username: params[:user][:username])
+    def valid?
+      params[:password] && params[:username]
+    end
 
-      success!(user) if user
+    def authenticate!
+      fail! unless user = User.first(username: params[:username])
+
+      if user.password == params[:password]
+        success!(user)
+      else
+        fail!
+      end
     end
   end
 
@@ -42,9 +48,8 @@ class Checkr < Sinatra::Base
     'not working'
   end
 
-  get '/users/:username' do
+  post '/login' do
     env['warden'].authenticate!
-    'working'
   end
 
 end
