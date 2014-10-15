@@ -1,6 +1,7 @@
 require 'dm-core'
 require 'dm-types'
 require 'dm-timestamps'
+require 'dm-validations'
 require 'dm-migrations'
 require 'bcrypt'
 
@@ -16,7 +17,6 @@ class User
   property   :username,      String,     required: true, unique: true
   property   :password,      BCryptHash, required: true
   property   :name,          String,     required: true
-  property   :sign_in_count, Integer,    default: 0
   timestamps :created_at,
              :updated_on
 
