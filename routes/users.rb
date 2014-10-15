@@ -9,16 +9,30 @@ module Sinatra
                   'access-control-allow-methods' => ['options', 'get', 'post']
         end
 
-        app.get '/users' do
-          User.all.to_json
-        end
-
         app.get '/user/:username' do
           user = User.first(username: params[:username])
           user.to_json
         end
 
-        app.post '/user' do
+        app.put '/user/:username' do
+          user = User.first(username: params[:username])
+
+          user.update({
+            name:     params[:name],
+            email:    params[:email],
+            username: params[:username],
+            password: params[:password]
+          })
+
+          user.save
+        end
+
+        app.delete '/user/:username' do
+          user = User.first(username: params[:username])
+          user.destroy
+        end
+
+        app.post '/user/create' do
           user = User.new({
             name:     params[:name],
             email:    params[:email],
@@ -26,11 +40,7 @@ module Sinatra
             password: params[:password]
           })
 
-          if user.save
-            return true
-          else
-            return false
-          end
+          user.save
         end
       end
 
