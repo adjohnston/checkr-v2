@@ -29,7 +29,7 @@ class List
   property   :id,         Serial
   property   :name,       String, required: true
   property   :desc,       Text
-  property   :is_public,  Boolean
+  property   :is_public,  Boolean, default: false
   timestamps :created_at,
              :updated_on
 
@@ -44,7 +44,7 @@ class Item
   property   :name,       String, required: true
   property   :desc,       String
   property   :url,        String
-  property   :is_checked, Boolean
+  property   :is_checked, Boolean, default: false
   timestamps :created_at,
              :updated_on
 
