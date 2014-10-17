@@ -7,7 +7,7 @@ require './routes/items'
 
 class Checkr < Sinatra::Base
 
-  use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
+  use Rack::Session::Cookie
 
   use Warden::Manager do | config |
     config.default_strategies :bcrypt
@@ -36,6 +36,7 @@ class Checkr < Sinatra::Base
             'access-control-allow-methods' => ['options', 'get', 'post']
   end
 
+  include  Sinatra::Warden::Helpers
   register Sinatra::Checkr::Sessions
   register Sinatra::Checkr::Users
   register Sinatra::Checkr::Lists
