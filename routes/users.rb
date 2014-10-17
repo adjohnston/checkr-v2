@@ -7,15 +7,15 @@ module Sinatra
         #   env['warden'].authenticated?
         # end
 
-        app.get '/:username' do
+        app.get '/user/:username' do
           @user = User.first(username: params[:username]).to_json
         end
 
         app.get '/current_user' do
-          current_user.to_json
+          current_user
         end
 
-        app.put '/:username' do
+        app.put '/user/update' do
           current_user.update({
             name:     params[:name],
             email:    params[:email],
@@ -24,8 +24,8 @@ module Sinatra
           }).save
         end
 
-        app.delete '/:username' do
-          current_user.to_json.destroy
+        app.delete '/user/delete' do
+          current_user.destroy
         end
 
         app.post '/user/create' do
