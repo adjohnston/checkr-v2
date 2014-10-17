@@ -12,7 +12,7 @@ module Sinatra
         end
 
         app.get '/current_user' do
-          current_user
+          current_user.to_json
         end
 
         app.put '/user/update' do
