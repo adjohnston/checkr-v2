@@ -3,44 +3,38 @@ module Sinatra
     module Users
 
       def self.registered(app)
-        app.before do
-          content_type :json
-          headers 'access-control-allow-origin'  => '*',
-                  'access-control-allow-methods' => ['options', 'get', 'post']
+        # app.before do
+        #   env['warden'].authenticated?
+        # end
+
+        app.get '/:username' do
+          @user = User.first(username: params[:username]).to_json
         end
 
-        app.get '/user/:username' do
-          user = User.first(username: params[:username])
-          user.to_json
+        app.get '/current_user' do
+          current_user.to_json
         end
 
-        app.put '/user/:username' do
-          user = User.first(username: params[:username])
-
-          user.update({
+        app.put '/:username' do
+          current_user.update({
             name:     params[:name],
             email:    params[:email],
             username: params[:username],
             password: params[:password]
-          })
-
-          user.save
+          }).save
         end
 
-        app.delete '/user/:username' do
-          user = User.first(username: params[:username])
-          user.destroy
+        app.delete '/:username' do
+          current_user.to_json.destroy
         end
 
         app.post '/user/create' do
-          user = User.new({
+          User.new({
             name:     params[:name],
             email:    params[:email],
             username: params[:username],
             password: params[:password]
-          })
-
-          user.save
+          }).save
         end
       end
 
