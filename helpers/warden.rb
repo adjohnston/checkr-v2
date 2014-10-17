@@ -3,7 +3,7 @@ module Sinatra
     module Helpers
 
       def current_user
-        env['warden'].user
+        env['warden'].user.to_json
       end
 
     end
