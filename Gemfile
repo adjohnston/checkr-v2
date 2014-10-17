@@ -8,8 +8,11 @@ end
 
 gem 'sinatra'
 gem 'sinatra-contrib'
+
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+
 gem 'warden'
 gem 'bcrypt'
+
 gem 'pg'
